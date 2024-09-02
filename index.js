@@ -55,6 +55,12 @@ client.on(Events.InteractionCreate, async interaction => {
     }
 });
 
+client.on("channelUpdate", async (oldChannel, newChannel) => {
+    console.log(oldChannel.name, oldChannel.position);
+    console.log(newChannel.name, newChannel.position);
+    console.log(oldChannel)
+})
+
 // When the client is read, rune this code (only once)
 // The distinction between `client: Client<boolean>` and `readyClient: Client<True>` is important for TypeScript devs.
 // It makes some properties non-nullable

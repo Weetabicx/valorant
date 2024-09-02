@@ -5,6 +5,11 @@ module.exports = {
         .setName("ping")
         .setDescription("Replies with Pong!"),
     async execute(interaction) {
-        await interaction.reply("Pong!");
+        const Guild = interaction.client.guilds.cache.get("GuildID");
+        const Member = Guild.members.cache.get("UserID");
+        if (Member.voice.channel) {
+            console.log("User is connected");
+        }
+        await interaction.reply(`${interaction.user.voice}`);
     },
 };
